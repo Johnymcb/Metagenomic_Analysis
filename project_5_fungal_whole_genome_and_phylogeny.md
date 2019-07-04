@@ -23,7 +23,7 @@ In this project, we are going to use data generated on 2nd-generation sequencers
 
 The original data you are going to use is in the ``/var/scratch/jb/Magnaporthe_project_data/Literature/`` on ILRI cluster's ``compute05`` host. It consists of **5 samples**, each sample being made of paired-reads sequencing data, in compressed FASTQ files. These files are meant to contain reads of DNA pertaining to *Magnaporthe oryzae*, but of course there is absolutely no guarantee that this will always be the case: in any DNA extraction experiment, contamination with other DNA can happen.
 
-Your first task will be to assemble the reads for each of the 5 samples. You will work in the directory of your choice, on the coimpute host of your choice, writing and running SLURM scripts to submit your jobs.
+Your first task will be to assemble the reads for each of the 5 samples. You will work in the directory of your choice, on the compute host of your choice, writing and running SLURM scripts to submit your jobs.
 
 Once you get meaningful contigs, you will compare them to whatever *M.oryzae* chromosomes you can find in the public databases. Meanwhile, some members of your group can try and annotate the contigs you get.
 
