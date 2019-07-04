@@ -13,7 +13,7 @@ The H3ABioNet have developed some [standard operating procedures (SOPs)](https:/
 
 Find below the pipeline we used for our node accreditation:
 
-![Variant_Calling](Figure/Variant_Pipeline.png)
+![Variant_Calling](Figures/Variant_Pipeline.png)
 Figure 1: **Flowchart of the Human Variant Calling Pipeline**. The format of the output files is added in (brackets). The tools used in each step are italicized and provided on the right. Double-headed arrows indicate steps which were ran more than once.
 
 ## Project Task
