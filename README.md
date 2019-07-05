@@ -8,8 +8,7 @@ Mini-projects for the residential training. As part of the EANBiT Residential tr
 2. [Microbiome metagenomics analysis of Kilifi creek mangrove sediments](project_2_mangrove_metagenomics.md)
 3. [Reproduce genomic analysis](project_3_reproduce_genomic_analysis.md)
 4. [Variant Calling Workflow Pipeline](project_4_variant_calling_workflow.md)
-5. 
-6. 
+5. [A project on whole-genome assembly, annotation and phylogenetic analysis](project_5_fungal_whole_genome_and_phylogeny.md)
 
 ## Expected
 - Work collaboratively on the project. In your report, you need to state the role played by each group member.
