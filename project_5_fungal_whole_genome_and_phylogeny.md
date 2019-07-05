@@ -21,7 +21,7 @@ In this project, we are going to use data generated on 2nd-generation sequencers
  5. Phylogenetic analyses
 
 
-The original data you are going to use is in the ``/var/scratch/jb/Magnaporthe_project_data/Literature/`` on ILRI cluster's ``compute05`` host. It consists of **5 samples**, each sample being made of paired-reads sequencing data, in compressed FASTQ files. These files are meant to contain reads of DNA pertaining to *Magnaporthe oryzae*, but of course there is absolutely no guarantee that this will always be the case: in any DNA extraction experiment, contamination with other DNA can happen.
+The original data you are going to use is in the ``/var/scratch/jb/Magnaporthe_project_data/`` on ILRI cluster's ``compute05`` host. It consists of **5 samples**, each sample being made of paired-reads sequencing data, in compressed FASTQ files. These files are meant to contain reads of DNA pertaining to *Magnaporthe oryzae*, but of course there is absolutely no guarantee that this will always be the case: in any DNA extraction experiment, contamination with other DNA can happen.
 
 Your first task will be to assemble the reads for each of the 5 samples. You will work in the directory of your choice, on the compute host of your choice, writing and running SLURM scripts to submit your jobs.
 
