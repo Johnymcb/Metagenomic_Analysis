@@ -1,6 +1,6 @@
 # EANBiT 2019 Residential Training Mini-Projects
 
-Mini-projects for the residential training. As part of the EANBiT Residential training 2019, the students will collaboratively work on mini-projects in groups of four. 
+Mini-projects for the residential training. As part of the EANBiT Residential training 2019, you will collaboratively work on mini-projects in groups of four. 
 
 ## Projects
 
@@ -12,5 +12,7 @@ Mini-projects for the residential training. As part of the EANBiT Residential tr
 
 ## Expected
 - Work collaboratively on the project. In your report, you need to state the role played by each group member.
+- Assign tasks to group members using GitHub issues **and** learn from each other. Every member of the group must be knowledgeable of the work of the whole group
+- Comment your scripts in a nice and informative way. Your scripts, programs, workflows, etc, will be reviewed as a critical part of the project assessment
 - Your writeup should be complete with visualizations
-- Collaborate via Git & GitHub making use of the Git Workflow
+- Collaborate via Git & GitHub, making use of the Git Workflow
