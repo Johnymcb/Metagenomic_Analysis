@@ -1,4 +1,4 @@
-##Helpful Notes
+# Helpful Notes and Links
 
 -[fastq-dump: alternative documentation](https://edwards.sdsu.edu/research/fastq-dump/)  # setting up command for sra downloads
 
