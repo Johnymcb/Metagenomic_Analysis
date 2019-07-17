@@ -1,0 +1,17 @@
+# Move to the working directory having the fastq.gz files and run:
+for file in ./*fastq.gz do; fastqc $file; done
+
+# FastQC html and zip files will be generated. 
+# Move them to a different directory(folder).
+mv *html ./fastqc_reports
+mv *zip ./fastqc_reports
+
+# Install multiqc in appropriate directory
+conda install -c bioconda multiqc
+
+# Test multiqc installation.
+multiqc --help
+
+# Move into directory with fastqc reports. Run multiqc.
+# Multiqc recognizes all .zip files in current working directory and combines them into one report
+multiqc .
