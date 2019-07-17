@@ -1,3 +1,8 @@
- for file in ./*.fastq.gz ; do
+for dir in /home/tb44227/nobackup/small_RNAseq_260917/support.igatech.it/sequences-export/536-RNA-seq_Disco_TuDO/delivery_25092017/*/ ; do
+     cd "$dir"
+     for file in ./*.fastq.gz ; do
             java -jar trimmomatic-0.36.jar SE  -threads ${PBS_NUM_PPN} -phred33 SLIDINGWINDOW:4:5 LEADING:5 TRAILING:5 MINLEN:17 "$file" "${file%.*}"_trimming.fastq
     done
+   cd ../
+done
+
