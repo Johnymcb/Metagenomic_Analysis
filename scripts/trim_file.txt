@@ -1,4 +1,0 @@
-#! bin/bash
-
-#Running script only for all files in the directory:
-$ sh auto_trimmomatic.sh *
