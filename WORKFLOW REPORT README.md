@@ -3,7 +3,7 @@
 ## PARTICIPANTS
 John Oketch
 
-Angela Murage
+Angela Muraya
 
 Joseph Mulama
 
@@ -35,13 +35,14 @@ POWERPOINT PRESENTATION
 1. Downloading sequencing data 
 Used the script retrive_from_sra.sh in scripts in our repo
 
+``
 #!/bin/bash
 
 for sra_id in $(cat SRR_Acc_List.txt)
 do
 	parallel-fastq-dump --sra-id $sra_id --threads 4 --outdir Data/ --split-files --gzip
 done
-
+``
 Successful downloads of SSR files.
 
 Challanges: Wrong accession number in the manuscripts probably caused by human emission erro.
@@ -57,7 +58,7 @@ Countered by using the current version of MultiFastQC due to used.
 
 3. Trimming and Filtering Truseq Adapters, Poly- N and poor quality reads less than 5.
 Used the below script and access its success using FastQ
-
+``
 #!/bin/bash
 for f1 in  *_1.fastq.gz
 do
@@ -67,17 +68,28 @@ do
         echo $f1 $f2    	
         echo "exist and not empty"
     	
-    	#trimmomatic PE $f1 $f2 paired_trimmed/${f1::12}_paired.fq.gz unpaired_trimmed/${f1::12}_unpaired.fq.gz paired_trimmed/${f2::12}_paired.fq.gz unpaired_trimmed/${f2::12}_unpaired.fq.gz ILLUMINACLIP:old_truseq.txt:2:30:10:2:keepBothReads LEADING:5 TRAILING:5 MINLEN:36 
+    	trimmomatic PE $f1 $f2 paired_trimmed/${f1::12}_paired.fq.gz unpaired_trimmed/${f1::12}_unpaired.fq.gz\
+	paired_trimmed/${f2::12}_paired.fq.gz unpaired_trimmed/${f2::12}_unpaired.fq.gz\
+	ILLUMINACLIP:old_truseq.txt:2:30:10:2:keepBothReads LEADING:5 TRAILING:5 MINLEN:36 
     else
     	echo "not exist or empty" 
     	echo $f1 $f2
    	trimmomatic SE $f1 ./trimmed/${f1}_trimmed ILLUMINACLIP:Truseq3.txt:2:30:10 LEADING:5 TRAILING:5 MINLEN:36 
-    	fi
+    fi
 done 
-
+``
 Successful trimming of the files.
 
 Challanges: Unable to use the out-dated version of Trimmomatic v0.36
 
 Countered by using the updated version Trimmomatic v0.38.
 
+4. De novo assembly of reads using Trinity v2.8.5
+
+Challenges: Editing the fastq files before trinity could work on them.
+``
+``
+
+We used this script on the edited files for assembly.
+``
+``
