@@ -1,3 +1,0 @@
- for file in ./*.fastq.gz ; do
-            java -jar trimmomatic-0.36.jar SE  -threads ${PBS_NUM_PPN} -phred33 SLIDINGWINDOW:4:5 LEADING:5 TRAILING:5 MINLEN:17 "$file" "${file%.*}"_trimming.fastq
-    done
