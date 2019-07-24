@@ -12,8 +12,8 @@ do
 	else
     	echo "not exist or empty" 
     	echo $f1 $f2
-    	#trimmomatic SE $f1 single_read/${f1}_trimmed ILLUMINACLIP:old_truseq.txt:2:30:10 LEADING:3 TRAILING:3 MINLEN:36
-    #else
+    	trimmomatic SE $f1 single_read/${f1}_trimmed ILLUMINACLIP:old_truseq.txt:2:30:10 LEADING:5 TRAILING:5 MINLEN:36
+    else
     
 	fi
 
