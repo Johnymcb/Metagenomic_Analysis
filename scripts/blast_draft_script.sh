@@ -7,11 +7,12 @@ BLASTDB=/export/data/bio/ncbi/blast/db
 TEMPDIR=/home/user14/tempdir # temp directory you want to use for all your temp files
 
 for i in *.fa; do
+#Creating a file for each file
 input_file=$i
 name=$(echo ${i%.fa})
-echo $name
+echo "Working with sample" $name
 output_file=${name}.fasta
-echo $output_file
+echo "create clean file" $output_file
 
 Header=true
 
@@ -20,28 +21,20 @@ Header=true
 		if [[ $line = '>'* ]]; then
 	
 			contig_len=${line:31:4}
-			echo $contig_len
 		
 			if [ $contig_len -ge 200 ]; then
-				echo "contig has >/= 200 bases"
-				echo $line
 				echo $line >> $output_file
 				Header=true
-			
 			else	
 				Header=false
 			fi
 		
 		else
 			if [ $Header == true ]; then
-				echo $line
-				echo $line >> $output_file
-				
+				echo $line >> $output_file	
 			else 
 				echo "no"	
-			
-			fi	
-			
+			fi		
 		fi	
 		
 	done < $input_file
