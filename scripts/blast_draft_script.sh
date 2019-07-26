@@ -33,7 +33,7 @@ Header=true
 			if [ $Header == true ]; then
 				echo $line >> $output_file	
 			else 
-				echo "no"	
+				: 	#This ':' says "Do nothing"	
 			fi		
 		fi	
 		
