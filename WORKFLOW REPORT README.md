@@ -1,15 +1,15 @@
 ## REPRODUCE GENOMIC ANALYSIS MINIPROJECT
 
 ## PARTICIPANTS
-John Oketch
+- John Oketch
 
-Angela Muraya
+- Angela Muraya
 
-Joseph Mulama
+- Joseph Mulama
 
-Joy Kabagenyi
+- Joy Kabagenyi
 
-David Kiragu
+- David Kiragu
 
 ## MAIN TASK
 Reproduce the genomic analysis carried out in the study. 
