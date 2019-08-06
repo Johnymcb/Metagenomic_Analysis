@@ -88,10 +88,19 @@ Countered by using the updated version Trimmomatic v0.38.
 
 4. De novo assembly of reads using Trinity v2.8.5
 
-Challenges: Editing the fastq files before trinity could work on them.
-``
-``
+Challenges: Editing the fastq files before trinity could work on them. because it could not read name formatting: [ERR2249221.1]
+Therefore we used the following script "fomart_paired_fqs_for_trinity_compatibility.sh"
 
-We used this script on the edited files for assembly.
-``
-``
+``` #!/usr/bin/env bash
+
+# work from the directory where the  paired fq files are located
+#modify depending on how you have named your reads
+
+
+#forward reads
+for file in *_1_paired.fq ; do awk '{ if (NR%4==1) { print $1"_"$2"/1" } else { print } }' $file > renamed_$file ; done
+
+
+#now the reverse reads
+for file in *_2_paired.fq ; do awk '{ if (NR%4==1) { print $1"_"$2"/2" } else { print } }' $file > renamed_$file ; done
+```
