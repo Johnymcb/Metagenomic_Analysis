@@ -32,7 +32,7 @@ POWERPOINT PRESENTATION
 
 ## **WORKFLOW**
 
-1. **Downloading sequencing data.**
+1. **Downloading sequenced data.**
 
 Used the script retrive_from_sra.sh in scripts in our repo
 
