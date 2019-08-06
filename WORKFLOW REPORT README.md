@@ -32,7 +32,8 @@ POWERPOINT PRESENTATION
 
 ## **WORKFLOW**
 
-1. Downloading sequencing data 
+1. **Downloading sequencing data.**
+
 Used the script retrive_from_sra.sh in scripts in our repo
 
 ```
@@ -46,18 +47,20 @@ done
 
 Successful downloads of SSR files.
 
-Challanges: Wrong accession number in the manuscripts probably caused by human emission erro.
+Challenges: Wrong accession number in the manuscripts probably caused by human emission errors.
 
 Countered through NCBI search using the projects Title rather than the Bioproject Accession number. 
 
-2. Changing the SSR sequence files to a fasta format using FastQC.
+2. **Changing the SSR sequence files to a fasta format using FastQC.**
+
 Successful conversion to output fastq files 
 
-Challanges: Unable to use the out-dated FastQC version v 0.11.2
+Challenges: Unable to use the out-dated FastQC version v 0.11.2
 
-Countered by using the current version of MultiFastQC due to used.
+Countered by using the current version of FastQC version 0.11.8.
 
-3. Trimming and Filtering Truseq Adapters, Poly- N and poor quality reads less than 5.
+3. **Trimming and Filtering Truseq Adapters, Poly- N and poor quality reads less than 5.**
+
 Used the below script and access its success using FastQ
 
 ```
@@ -82,15 +85,17 @@ done
 ```
 Successful trimming of the files.
 
-Challanges: Unable to use the out-dated version of Trimmomatic v0.36
-
+Challanges1: Unable to use the out-dated version of Trimmomatic v0.36
 Countered by using the updated version Trimmomatic v0.38.
 
-4. De novo assembly of reads using Trinity v2.8.5
+Challenge2: Default parameter of Truseq caused errors hence forced to create an old_truseq.txt containing the sequence
+TATTGCACTCGTCCCGGCCTCCTCGTATGCCGTCTT
+ 
+ 4. **De novo assembly of reads using Trinity v2.8.5.**
 
 Challenges: Editing the fastq files before trinity could work on them because it could not read name formatting: [ERR2249221.1]
 Countered by using the following script "fomart_paired_fqs_for_trinity_compatibility.sh" to correct the error.
- 
+
 ``` 
 #!/user/bin/env bash
 
@@ -105,6 +110,8 @@ for file in *_1_paired.fq ; do awk '{ if (NR%4==1) { print $1"_"$2"/1" } else { 
 #now the reverse reads
 for file in *_2_paired.fq ; do awk '{ if (NR%4==1) { print $1"_"$2"/2" } else { print } }' $file > renamed_$file ; done
 ```
+
+
 Following manuscripts instructions, for each individual sample, high-quality reads with a Phred score of 64, denoting high quality base calls were de novo assembled into contigs using Trinity v2.6.6 with Kmer size = 25 and other default parameters.
 Challenge: Unable to use Trinity v2.4.0.
 Countered using Trinity v2.6.6.
