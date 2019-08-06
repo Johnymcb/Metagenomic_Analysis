@@ -88,10 +88,11 @@ Countered by using the updated version Trimmomatic v0.38.
 
 4. De novo assembly of reads using Trinity v2.8.5
 
-Challenges: Editing the fastq files before trinity could work on them. because it could not read name formatting: [ERR2249221.1]
-Therefore we used the following script "fomart_paired_fqs_for_trinity_compatibility.sh"
-
-``` #!/usr/bin/env bash
+Challenges: Editing the fastq files before trinity could work on them because it could not read name formatting: [ERR2249221.1]
+Countered by using the following script "fomart_paired_fqs_for_trinity_compatibility.sh" to correct the error.
+ 
+``` 
+#!/user/bin/env bash
 
 # work from the directory where the  paired fq files are located
 #modify depending on how you have named your reads
@@ -103,4 +104,50 @@ for file in *_1_paired.fq ; do awk '{ if (NR%4==1) { print $1"_"$2"/1" } else { 
 
 #now the reverse reads
 for file in *_2_paired.fq ; do awk '{ if (NR%4==1) { print $1"_"$2"/2" } else { print } }' $file > renamed_$file ; done
+```
+Following manuscripts instructions, for each individual sample, high-quality reads with a Phred score of 64, denoting high quality base calls were de novo assembled into contigs using Trinity v2.6.6 with Kmer size = 25 and other default parameters.
+Challenge: Unable to use Trinity v2.4.0.
+Countered using Trinity v2.6.6.
+
+using the script "run_trinity_for_renamed_fq.sbatch" as follows:
+``` 
+#!/bin/bash
+#SBATCH -w taurus
+#SBATCH -p batch
+#SBATCH -J trinity_for_new_qcs
+#SBATCH -n 2
+
+
+module load trinity/v2.6.6
+
+
+for f1 in  *_1_paired.fq
+do
+    f2=${f1%%_1_paired.fq}"_2_paired.fq"
+        
+    if [[ -f "$f2" && -s "$f2" ]]; then 
+        echo $f1 $f2    	
+        echo "exist and not empty"
+    	
+    	Trinity --seqType fq --left $f1 --right $f2 --SS_lib_type FR --max_memory 2G --CPU 2 --output ./trinity_out --full_cleanup
+    else
+    	echo "not exist or empty" 
+    	fi
+done 
+```
+ The resulting contigs in trinity.fasta files were later on fsubjected seqkit stat to give a summary of our contigs so as to filter in contigs of length ≥ 200 bp for subsequent analysis. This could be done using the "seqkit_loop.sh" script
+ ```
+#!/bin/bash
+
+# Install seqkit tool using: "conda install -c bioconda seqkit"
+
+# Seqkit will loop through & select the files with minimum length of 200 nucleotides.
+# "--quiet" disables the inclusion of error messages in output file
+# lowercase "m" indicates minimum while uppercase "M" indicates maximum.
+count=1
+for infile in *.fa; do cat $infile | seqkit seq --quiet -m 200 > outfile_${count}; done
+((count+=1)) 
+
+# cat $infile | seqkit stats # Gives the summary statistics of input file.
+
 ```
