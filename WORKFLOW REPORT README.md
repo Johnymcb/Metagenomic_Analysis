@@ -151,3 +151,4 @@ for infile in *.fa; do cat $infile | seqkit seq --quiet -m 200 > outfile_${count
 # cat $infile | seqkit stats # Gives the summary statistics of input file.
 
 ```
+Fortunately all contigs passed the length ≥ 200 bp for subsequent analysis.
