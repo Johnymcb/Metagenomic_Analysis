@@ -1,7 +1,7 @@
 ## REPRODUCE GENOMIC ANALYSIS MINIPROJECT
 
 ## PARTICIPANTS
-- John Oketch
+- John Oketch(Captain)
 
 - Angela Muraya
 
